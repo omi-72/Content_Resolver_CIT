@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
         if (cursor!= null){
             cursor.moveToPosition(0);
 
+            while (true){
+
+                
+
+            }
+
         }
 
     }
