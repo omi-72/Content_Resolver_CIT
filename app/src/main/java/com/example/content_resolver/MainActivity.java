@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
@@ -76,9 +77,12 @@ public class MainActivity extends AppCompatActivity {
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
                 Uri imageUri= ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
 
+                Log.i("TAG", "Uri: " + imageUri);
+
                 if (!cursor.isLast()){
                     cursor.moveToNext();
-
+                }else {
+                    break;
                 }
 
             }
