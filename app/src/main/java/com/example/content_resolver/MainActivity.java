@@ -72,8 +72,7 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToPosition(0);
 
             while (true){
-
-                
+                long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
 
             }
 
