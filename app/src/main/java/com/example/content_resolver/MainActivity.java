@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
@@ -52,5 +53,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getData() {
+
+        String[] projection = new String[]{
+                MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.SIZE,
+                MediaStore.Images.Media.DATE_MODIFIED,
+                MediaStore.Images.Media.BUCKET_DISPLAY_NAME
+
+        };
+
     }
 }
