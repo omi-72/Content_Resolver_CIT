@@ -66,7 +66,12 @@ public class MainActivity extends AppCompatActivity {
         };
         Uri contentUri= MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 
-        Cursor cursor= getContentResolver().query(contentUri,projection)
+        Cursor cursor= getContentResolver().query(contentUri,projection,null,null,null);
+
+        if (cursor!= null){
+            
+
+        }
 
     }
 }
