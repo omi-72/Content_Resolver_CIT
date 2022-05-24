@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void runTimeperm() {
         Dexter.withContext(this)
-                .withPermission(Manifest.permission.CAMERA)
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse response) {
