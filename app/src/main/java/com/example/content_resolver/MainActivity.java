@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
@@ -20,12 +21,19 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageView action_image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         runTimeperm();
+
+        action_image = findViewById(R.id.action_image);
+        Uri uri = Uri.parse("content://media/external/images/media/88");
+
+        action_image.setImageURI(uri);
     }
 
     private void runTimeperm() {
@@ -73,11 +81,13 @@ public class MainActivity extends AppCompatActivity {
         if (cursor!= null){
             cursor.moveToPosition(0);
 
+            Uri imageUri;
             while (true){
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
-                Uri imageUri= ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
+               imageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
 
                 Log.i("TAG", "Uri: " + imageUri);
+
 
                 if (!cursor.isLast()){
                     cursor.moveToNext();
