@@ -3,6 +3,8 @@ package com.example.content_resolver;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Toast;
@@ -58,9 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 MediaStore.Images.Media._ID,
                 MediaStore.Images.Media.SIZE,
                 MediaStore.Images.Media.DATE_MODIFIED,
-                MediaStore.Images.Media.BUCKET_DISPLAY_NAME
+                MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
+                MediaStore.Images.Media.DISPLAY_NAME
 
         };
+        Uri contentUri= MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+
+        Cursor cursor= getContentResolver().query(contentUri,projection)
 
     }
 }
