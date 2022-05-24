@@ -3,6 +3,7 @@ package com.example.content_resolver;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.ContentUris;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -73,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
             while (true){
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
+                Uri imageUri= ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
+
+                if (!cursor.isLast()){
+                    cursor.moveToNext();
+
+                }
 
             }
 
