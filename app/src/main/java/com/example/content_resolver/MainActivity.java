@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         runTimeperm();
 
         action_image = findViewById(R.id.action_image);
-        Uri uri = Uri.parse("content://media/external/images/media/88");
+        Uri uri = Uri.parse("content://media/external/images/media/87");
 
         action_image.setImageURI(uri);
     }
