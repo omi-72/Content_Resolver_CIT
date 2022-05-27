@@ -37,4 +37,13 @@ public class Gallery {
     public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
     }
+
+    @Override
+    public String toString() {
+        return "Gallery{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", imageUri=" + imageUri +
+                '}';
+    }
 }

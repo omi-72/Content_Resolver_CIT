@@ -19,9 +19,13 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView action_image;
+    List<Gallery> galleryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         runTimeperm();
 
-        action_image = findViewById(R.id.action_image);
-        Uri uri = Uri.parse("content://media/external/images/media/87");
 
-        action_image.setImageURI(uri);
+
     }
 
     private void runTimeperm() {
@@ -66,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void getData() {
 
-        String[] projection = new String[]{
+        galleryList = new ArrayList<>();
+
+        String[] projection = new String[]
+                {
                 MediaStore.Images.Media._ID,
                 MediaStore.Images.Media.SIZE,
                 MediaStore.Images.Media.DATE_MODIFIED,
@@ -81,14 +86,16 @@ public class MainActivity extends AppCompatActivity {
         if (cursor!= null){
             cursor.moveToPosition(0);
 
-            Uri imageUri;
             while (true){
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
                 String name = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME));
+               Uri imageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
 
-               imageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
+               Gallery gallery= new Gallery(id,name,imageUri);
 
-                Log.i("TAG", "Uri: " + imageUri);
+                galleryList.add(gallery);
+
+                Log.i("TAG", "Uri: " + gallery.toString());
 
 
                 if (!cursor.isLast()){
