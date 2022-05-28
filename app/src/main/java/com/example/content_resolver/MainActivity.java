@@ -1,6 +1,7 @@
 package com.example.content_resolver;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.ContentUris;
@@ -24,8 +25,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView action_image;
     List<Gallery> galleryList;
+    RecyclerView recyclerView_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private void getData() {
 
         galleryList = new ArrayList<>();
+        recyclerView_image= findViewById(R.id.recyclerView_image);
 
         String[] projection = new String[]
                 {
@@ -105,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
+
+            GalleryAdapter adapter= new GalleryAdapter(MainActivity.this,galleryList);
+
+            recyclerView_image.setAdapter(adapter);
 
         }
 
