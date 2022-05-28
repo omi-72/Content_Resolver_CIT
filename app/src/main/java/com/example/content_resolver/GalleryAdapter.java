@@ -31,10 +31,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
 
+        Gallery gallery= galleryList.get(position);
+
+        holder.g_image_name.setText(gallery.getName());
+        holder.g_image.setImageURI(gallery.getImageUri());
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return galleryList.size();
     }
 }
