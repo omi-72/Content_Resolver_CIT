@@ -1,6 +1,8 @@
 package com.example.content_resolver;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -21,7 +23,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(context).inflate(R.layout.item_image,parent,false);
+
+        return new GalleryViewHolder(view) ;
     }
 
     @Override
