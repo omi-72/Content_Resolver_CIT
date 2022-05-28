@@ -41,6 +41,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,FullActivity.class);
+                intent.putExtra("Uri", Gallery.class);
                 context.startActivity(intent);
             }
         });
