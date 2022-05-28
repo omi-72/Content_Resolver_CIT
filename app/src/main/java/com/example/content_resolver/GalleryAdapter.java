@@ -1,6 +1,7 @@
 package com.example.content_resolver;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
 
         holder.g_image_name.setText(gallery.getName());
         holder.g_image.setImageURI(gallery.getImageUri());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,FullActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
 
