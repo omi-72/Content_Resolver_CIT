@@ -38,14 +38,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
         holder.g_image_name.setText(gallery.getName());
         holder.g_image.setImageURI(gallery.getImageUri());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context,FullActivity.class);
-                intent.putExtra("g_image",);
-                context.startActivity(intent);
-            }
-        });
 
     }
 
