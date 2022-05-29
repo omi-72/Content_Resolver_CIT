@@ -23,9 +23,10 @@ public class FullActivity extends AppCompatActivity {
         p_image =findViewById(R.id.p_image);
 
         intent= getIntent();
-        if (intent.hasExtra("Uri")){
-          i_image=  intent.getIntExtra("Uri", 1);
+        if (intent.hasExtra("g_image")){
+          i_image=  intent.getIntExtra("g_image", 1);
         }
+        g_image.setImageResource(i_image);
 
     }
 }

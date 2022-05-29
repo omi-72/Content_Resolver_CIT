@@ -2,6 +2,7 @@ package com.example.content_resolver;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,FullActivity.class);
-                intent.putExtra("Uri", Gallery.class);
+                intent.putExtra("g_image",);
                 context.startActivity(intent);
             }
         });
