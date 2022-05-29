@@ -37,14 +37,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
 
         holder.g_image_name.setText(gallery.getName());
         holder.g_image.setImageURI(gallery.getImageUri());
-
-        holder.g_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
+        
     }
 
     @Override
