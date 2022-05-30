@@ -114,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
             GalleryAdapter adapter= new GalleryAdapter(MainActivity.this,galleryList);
 
+            galleryViewPager.setAdapter(adapter);
+
             recyclerView_image.setAdapter(adapter);
 
         }
