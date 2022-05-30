@@ -2,6 +2,7 @@ package com.example.content_resolver;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.Manifest;
 import android.content.ContentUris;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     List<Gallery> galleryList;
     RecyclerView recyclerView_image;
+
+    ViewPager2 galleryViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         galleryList = new ArrayList<>();
         recyclerView_image= findViewById(R.id.recyclerView_image);
+        galleryViewPager = findViewById(R.id.galleryViewPager);
 
         String[] projection = new String[]
                 {
