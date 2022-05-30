@@ -37,7 +37,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
 
         holder.g_image_name.setText(gallery.getName());
         holder.g_image.setImageURI(gallery.getImageUri());
-        
+
     }
 
     @Override
